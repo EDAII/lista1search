@@ -45,20 +45,23 @@ int sequentialSearch(int *vector, int size, int value) {
 }
 
 /* Binary Search */
-int binarySearch(int arr[], int l, int r, int x) {
-   if (r >= l) {
-        int mid = l + (r - l)/2;
- 
-        if (arr[mid] == x)
-            return mid;
- 
-        if (arr[mid] > x)
-            return binarySearch(arr, l, mid-1, x);
- 
-        return binarySearch(arr, mid+1, r, x);
-   }
- 
-   return -1;
+int binarySearch(int* vector, int size, int value) {
+    int first = 0;
+    int mid;
+    int last = size - 1;
+   
+    while (first <= last) {
+     mid = (first + last) / 2;
+      if (value < vector[mid]) {
+        last = mid - 1;
+      } else if (value > vector[mid]) {
+        first = mid + 1;
+      } else {
+        return mid;
+      } 
+    }
+
+    return -1; 
 }
 
 /* Interpolation Search */

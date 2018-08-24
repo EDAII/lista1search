@@ -94,7 +94,7 @@ void executeMenu() {
                 }
             } while (value <= 0);
            
-            int result = binarySearch(vector, 0, size, value);
+            int result = binarySearch(vector, size, value);
             if (result != -1) {
                 printf("Valor encontrado!\n\n\n");
             } else {
@@ -122,10 +122,13 @@ void executeMenu() {
             break;
        
         case 0:
+            destroyVector(vector);
             break;
        
         default:
             printf("Digite uma opção válida.\n");
     }
   } while(opt);
+
+  destroyVector(vector);
 }
